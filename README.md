@@ -1,13 +1,12 @@
 # Project Name
 
-> Project description
+> This repository contains the component to be rendered to the AirBee&Bee page that will display photos for each listing, as well as an interactive carousel for toggling through those photos.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/AirBee-Bee/checkin-checkout
+  - https://github.com/AirBee-Bee/description-amenities
+  - https://github.com/AirBee-Bee/reviews
 
 ## Table of Contents
 
