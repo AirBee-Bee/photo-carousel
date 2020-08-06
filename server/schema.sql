@@ -13,6 +13,7 @@ CREATE TABLE listings (
 CREATE TABLE photos (
   id INT NOT NULL AUTO_INCREMENT,
   photo_url VARCHAR(2083),
+  photo_description VARCHAR(255),
   listing_id INT,
   PRIMARY KEY (id),
   FOREIGN KEY (listing_id) REFERENCES listings(id)
