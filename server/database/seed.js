@@ -35,7 +35,7 @@ var seedListings = (n, callback) => {
 
 // This is a helper function to add one photo to the database
 var addOnePhoto = (listingId, callback) => {
-  let randomId = Math.floor(Math.random() * 40);
+  let randomId = Math.floor((Math.random() * 40) + 1);
   let queryString = `INSERT INTO photos (photo_url, photo_description, listing_id) VALUES ("${imageURL}${randomId}.jpeg", "${randomDescription(loremIpsum)}", "${listingId}");`;
   db.query(queryString, (err) => {
     if (err) {
