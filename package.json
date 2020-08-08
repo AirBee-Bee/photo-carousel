@@ -10,7 +10,8 @@
   "scripts": {
     "seed-db": "node server/database/seed.js",
     "server-dev": "nodemon server/index.js",
-    "build": "webpack -d --watch"
+    "build": "webpack -d --watch",
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "@babel/core": "^7.4.0",
