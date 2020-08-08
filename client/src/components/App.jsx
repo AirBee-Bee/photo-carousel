@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import Carousel from './Carousel.jsx';
 import $ from 'jquery';
 
 class App extends React.Component {
@@ -7,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       photos: [],
-      showModal: false
+      showModal: false,
+      currentPhoto: 1
     };
   }
 
@@ -24,7 +26,8 @@ class App extends React.Component {
       success: photos => {
         this.setState({
           photos,
-          showModal: false
+          showModal: false,
+          currentPhoto: 1
         });
       },
       error: err => {
@@ -33,12 +36,18 @@ class App extends React.Component {
     });
   }
 
-  handleOpenModal() {
-    this.setState({ showModal: true });
+  handleOpenModal(i) {
+    this.setState({
+      showModal: true,
+      currentPhoto: i + 1
+    });
   }
 
   handleCloseModal() {
-    this.setState({ showModal: false });
+    this.setState({
+      showModal: false,
+      currentPhoto: 1
+    });
   }
 
   render() {
@@ -50,7 +59,7 @@ class App extends React.Component {
             src={image.photo_url}
             alt={image.photo_description}
             key={index}
-            onClick={this.handleOpenModal.bind(this)}
+            onClick={this.handleOpenModal.bind(this, index)}
           />
         ))}
         <ReactModal
@@ -59,6 +68,10 @@ class App extends React.Component {
           <button
             onClick={this.handleCloseModal.bind(this)}
           >Close</button>
+          <Carousel
+            photos={this.state.photos}
+            currentPhoto={this.state.currentPhoto}
+          />
         </ReactModal>
       </div>
     );
