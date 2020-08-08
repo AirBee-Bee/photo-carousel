@@ -33,6 +33,7 @@ class Carousel extends React.Component {
         <div id="carousel">
           <button
             id="back-btn"
+            style={{ display: index === 0 ? "none" : "inline-block" }}
             onClick={this.handleBack.bind(this)}
           >{'<'}</button>
           <img
@@ -42,6 +43,7 @@ class Carousel extends React.Component {
           />
           <button
             id="forward-btn"
+            style={{ display: index + 1 === photos.length ? "none" : "inline-block" }}
             onClick={this.handleForward.bind(this)}
           >{'>'}</button>
         </div>
