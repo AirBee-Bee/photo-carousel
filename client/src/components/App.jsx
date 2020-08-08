@@ -2,6 +2,9 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import Carousel from './Carousel.jsx';
 import $ from 'jquery';
+import styled from 'styled-components';
+import { GlobalStyle } from './Style.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -54,6 +57,7 @@ class App extends React.Component {
     var images = this.state.photos.slice(0, 5);
     return (
       <div>
+        <GlobalStyle />
         {images.map((image, index) => (
           <img
             src={image.photo_url}
