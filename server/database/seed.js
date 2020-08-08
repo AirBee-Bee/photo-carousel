@@ -25,9 +25,7 @@ var seedListings = (n, callback) => {
       if (err) {
         console.log(`Error seeding listings table: ${err}`);
       } else {
-        console.log(`listing ${i + 1} added`);
         if (i === n - 1) {
-          console.log(`Done seeding listings`);
           callback();
         }
       }
@@ -41,9 +39,8 @@ var addOnePhoto = (listingId, callback) => {
   let queryString = `INSERT INTO photos (photo_url, photo_description, listing_id) VALUES ("${imageURL}${randomId}.jpeg", "${randomDescription(loremIpsum)}", "${listingId}");`;
   db.query(queryString, (err) => {
     if (err) {
-      console.log(`Error added a photo: ${err}`);
+      console.log(`Error adding a photo: ${err}`);
     } else {
-      console.log(`Photo added to database for listing ${listingId}`);
       callback(err);
     }
   });
@@ -59,7 +56,6 @@ var seedPhotos = (n, callback) => {
         if (err) {
           console.log(`Error seeding photos: ${err}`);
         } else if (i === n && j === randomNumber - 1) {
-          console.log(`Done seeding photos`);
           callback();
         }
       });
@@ -68,7 +64,7 @@ var seedPhotos = (n, callback) => {
 };
 
 // This function seeds the database with n primary records
-var seedDatabase = (n) => {
+var seedDatabase = (n, callback = () => {}) => {
   seedListings(n, (err) => {
     if (err) {
       console.log(`Error seeding database: ${err}`);
@@ -77,11 +73,15 @@ var seedDatabase = (n) => {
         if (err) {
           console.log(`Error seeding database: ${err}`);
         } else {
-          console.log(`Database seeded!`);
+          callback();
         }
       });
     }
   });
 };
 
-seedDatabase(100);
+// seedDatabase(100);
+
+module.exports = {
+  seedDatabase
+};
