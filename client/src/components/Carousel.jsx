@@ -10,15 +10,13 @@ class Carousel extends React.Component {
 
   handleBack() {
     this.setState({
-      currentPhoto: this.state.currentPhoto - 1,
-      photos: this.props.photos
+      currentPhoto: this.state.currentPhoto - 1
     });
   }
 
   handleForward() {
     this.setState({
-      currentPhoto: this.state.currentPhoto + 1,
-      photos: this.props.photos
+      currentPhoto: this.state.currentPhoto + 1
     });
   }
 

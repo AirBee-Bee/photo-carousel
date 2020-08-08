@@ -26,7 +26,8 @@ class App extends React.Component {
       success: photos => {
         this.setState({
           photos,
-          showModal: false
+          showModal: false,
+          currentPhoto: 1
         });
       },
       error: err => {
