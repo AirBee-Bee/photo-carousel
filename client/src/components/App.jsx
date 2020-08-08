@@ -35,12 +35,18 @@ class App extends React.Component {
     });
   }
 
-  handleOpenModal() {
-    this.setState({ showModal: true });
+  handleOpenModal(i) {
+    this.setState({
+      showModal: true,
+      currentPhoto: i + 1
+    });
   }
 
   handleCloseModal() {
-    this.setState({ showModal: false });
+    this.setState({
+      showModal: false,
+      currentPhoto: 1
+    });
   }
 
   render() {
@@ -52,7 +58,7 @@ class App extends React.Component {
             src={image.photo_url}
             alt={image.photo_description}
             key={index}
-            onClick={this.handleOpenModal.bind(this)}
+            onClick={this.handleOpenModal.bind(this, index)}
           />
         ))}
         <ReactModal
