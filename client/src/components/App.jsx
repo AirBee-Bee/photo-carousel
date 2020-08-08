@@ -10,7 +10,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var listingId = 2; // This will eventually need to point to the listing id in the URL
+    var id = 2; // This will eventually need to point to the listing id in the URL
+    this.fetchPhotos(id);
+  }
+
+  fetchPhotos(listingId) {
     $.ajax({
       method: 'GET',
       url: `/listing/${listingId}`,
