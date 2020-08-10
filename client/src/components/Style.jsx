@@ -26,11 +26,11 @@ time, mark, audio, video {
 `;
 
 export const MainContainer = styled.div`
+  resize: both;
   position: relative;
   display: grid;
-  min-width: 800px;
-  max-width: 80%;
-  height: 425px;
+  width: 78vw;
+  height: 28vw;
   margin: 20px auto;
   grid-template: ${props => {
     if (props.count > 4) {
@@ -78,5 +78,6 @@ export const ShowPhotosButton = styled.button`
   display: ${props => props.shouldHide ? 'none' : 'inline-block'};
   &:hover {
     cursor: pointer;
+    filter: brightness(95%);
   }
 `;
