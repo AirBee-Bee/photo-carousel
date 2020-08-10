@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import Carousel from './Carousel.jsx';
 import $ from 'jquery';
 import styled from 'styled-components';
-import { GlobalStyle } from './Style.jsx';
+import { GlobalStyle, MainContainer, Image } from './Style.jsx';
 
 
 class App extends React.Component {
@@ -58,25 +58,32 @@ class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
-        {images.map((image, index) => (
-          <img
-            src={image.photo_url}
-            alt={image.photo_description}
-            key={index}
-            onClick={this.handleOpenModal.bind(this, index)}
-          />
-        ))}
-        <ReactModal
-          isOpen={this.state.showModal}
+        <MainContainer
+          count={images.length}
         >
-          <button
-            onClick={this.handleCloseModal.bind(this)}
-          >Close</button>
-          <Carousel
-            photos={this.state.photos}
-            currentPhoto={this.state.currentPhoto}
-          />
-        </ReactModal>
+          {images.map((image, index) => (
+            <Image
+              id={`img-${index + 1}`}
+              src={image.photo_url}
+              alt={image.photo_description}
+              key={index}
+              onClick={this.handleOpenModal.bind(this, index)}
+              primary={index === 0}
+              count={images.length}
+            />
+          ))}
+          <ReactModal
+            isOpen={this.state.showModal}
+          >
+            <button
+              onClick={this.handleCloseModal.bind(this)}
+            >Close</button>
+            <Carousel
+              photos={this.state.photos}
+              currentPhoto={this.state.currentPhoto}
+            />
+          </ReactModal>
+        </MainContainer>
       </div>
     );
   }
