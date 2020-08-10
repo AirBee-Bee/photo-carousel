@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import Carousel from './Carousel.jsx';
 import $ from 'jquery';
 import styled from 'styled-components';
-import { GlobalStyle, MainContainer, Image } from './Style.jsx';
+import { GlobalStyle, MainContainer, Image, ShowPhotosButton } from './Style.jsx';
 
 
 class App extends React.Component {
@@ -72,6 +72,10 @@ class App extends React.Component {
               count={images.length}
             />
           ))}
+          <ShowPhotosButton
+            onClick={this.handleOpenModal.bind(this, 0)}
+            shouldHide={this.state.showModal}
+          >Show all photos</ShowPhotosButton>
           <ReactModal
             isOpen={this.state.showModal}
           >

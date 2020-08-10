@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
 
+// CSS Reset
 export const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -25,10 +26,11 @@ time, mark, audio, video {
 `;
 
 export const MainContainer = styled.div`
+  position: relative;
   display: grid;
   min-width: 800px;
   max-width: 80%;
-  height: 400px;
+  height: 425px;
   margin: 20px auto;
   grid-template: ${props => {
     if (props.count > 4) {
@@ -54,6 +56,27 @@ export const Image = styled.img`
       } else {
         return '1 / 1 / span 1 / span 1;';
       }
-    }}`
+    }}
+  `}
+  &:hover {
+    cursor: pointer;
+    filter: brightness(80%);
+    transition: 0.5s;
+  }
+`;
+
+export const ShowPhotosButton = styled.button`
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border: 1px black solid;
+  bottom: 5%;
+  right: 2%;
+  padding: 8px 13px;
+  border-radius: 10px;
+  z-index: 10;
+  outline: none;
+  display: ${props => props.shouldHide ? 'none' : 'inline-block'};
+  &:hover {
+    cursor: pointer;
   }
 `;
