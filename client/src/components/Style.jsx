@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
+import ReactModal from 'react-modal';
 
 // CSS Reset
 export const GlobalStyle = createGlobalStyle`
@@ -46,17 +47,18 @@ export const MainContainer = styled.div`
   overflow: hidden;
 `;
 
+// This is for the images that are rendered when the page loads
 export const Image = styled.img`
   height: 100%;
   width: 100%;
   ${props => props.primary && css`
     grid-area: ${props => {
-      if (props.count > 4) {
-        return '1 / 1 / span 2 / span 2;';
-      } else {
-        return '1 / 1 / span 1 / span 1;';
-      }
-    }}
+    if (props.count > 4) {
+      return '1 / 1 / span 2 / span 2;';
+    } else {
+      return '1 / 1 / span 1 / span 1;';
+    }
+  }}
   `}
   &:hover {
     cursor: pointer;
@@ -81,3 +83,16 @@ export const ShowPhotosButton = styled.button`
     filter: brightness(95%);
   }
 `;
+
+export const ModalStyles = {
+  content: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: '#fff',
+    overflow: 'auto',
+    outline: 'none'
+  }
+};
