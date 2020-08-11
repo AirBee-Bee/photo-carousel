@@ -1,5 +1,8 @@
 import React from 'react';
-import { CarouselContainer, DisplayedImage, ArrowButton, ImageIndex } from './Style.jsx';
+import { CarouselContainer, DisplayedImage, ArrowButton, ImageIndex, CloseButton } from './Style.jsx';
+import css from './style.css';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -29,7 +32,17 @@ class Carousel extends React.Component {
       <div>
         <ImageIndex>{index + 1} / {photos.length}</ImageIndex>
         <br />
+        <div
+          className={css.Heart}
+        >
+          <FontAwesomeIcon
+            icon={faHeart}
+          />
+        </div>
         <CarouselContainer>
+          <CloseButton
+            onClick={() => this.props.closeModal()}
+          >X Close</CloseButton>
           <ArrowButton
             style={{ display: index === 0 ? 'none' : 'inline-block' }}
             onClick={this.handleBack.bind(this)}

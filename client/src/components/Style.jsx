@@ -32,7 +32,7 @@ export const MainContainer = styled.div`
   display: grid;
   width: 78vw;
   height: 28vw;
-  margin: 20px auto;
+  margin: 80px auto;
   grid-template: ${props => {
     if (props.count > 4) {
       return 'repeat(2, minmax(auto, 50%)) / repeat(4, minmax(auto, 25%));';
@@ -130,3 +130,23 @@ export const ImageIndex = styled.p`
   font-weight: 100;
   color: #666;
 `;
+
+export const CloseButton = styled.button`
+  grid-area: 1 / 1 / span 1 / span 1;
+  border: none;
+  border-radius: 10px;
+  width: 90px;
+  height: 35px;
+  background-color: #dfdfdf;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 10px;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+    background-color: #ccc;
+  }
+`;
+
