@@ -16,5 +16,5 @@ CREATE TABLE photos (
   photo_description VARCHAR(255),
   listing_id INT,
   PRIMARY KEY (id),
-  FOREIGN KEY (listing_id) REFERENCES listings(id)
+  FOREIGN KEY (listing_id) REFERENCES listings(id) ON DELETE CASCADE
 );

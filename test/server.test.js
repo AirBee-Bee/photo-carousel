@@ -1,6 +1,5 @@
 const mysql = require('mysql');
 const db = require('../server/database/index.js');
-const seed = require('../server/database/seed.js');
 
 describe('Database seeding', () => {
 
@@ -13,33 +12,9 @@ describe('Database seeding', () => {
       done();
     };
 
-    var dropDB = 'DROP DATABASE IF EXISTS photo_carousel;';
-    var createDB = 'CREATE DATABASE photo_carousel;';
-    var useDB = 'USE photo_carousel;';
-    var createListings = 'CREATE TABLE listings (id INT NOT NULL AUTO_INCREMENT,listing_name VARCHAR(255),PRIMARY KEY (id));';
-    var createPhotos = 'CREATE TABLE photos (id INT NOT NULL AUTO_INCREMENT,photo_url VARCHAR(2083),photo_description VARCHAR(255),listing_id INT,PRIMARY KEY (id),FOREIGN KEY (listing_id) REFERENCES listings(id));';
-
-    var resetDB = (cb) => {
-      db.connection.query(dropDB, () => {
-        db.connection.query(createDB, () => {
-          db.connection.query(useDB, () => {
-            db.connection.query(createListings, () => {
-              db.connection.query(createPhotos, () => {
-                cb();
-              });
-            });
-          });
-        });
-      });
-    };
-
-    resetDB(() => {
-      seed.seedDatabase(100, () => {
-        db.connection.query('SELECT * FROM listings;', (err, listingData) => {
-          db.connection.query('SELECT * FROM photos;', (err, photoData) => {
-            callback(listingData, photoData);
-          });
-        });
+    db.connection.query('SELECT * FROM listings;', (err, listingData) => {
+      db.connection.query('SELECT * FROM photos;', (err, photoData) => {
+        callback(listingData, photoData);
       });
     });
 
@@ -74,19 +49,20 @@ describe('Database querying', () => {
     };
 
     var insertListing = 'INSERT INTO listings (listing_name) VALUES ("TEST");';
-    var insertPhoto = 'INSERT INTO photos (photo_description, listing_id) VALUES ("TEST_PHOTO", 101);';
-    var removePhoto = 'DELETE FROM photos WHERE listing_id = 101;';
+    var subQuery = 'SELECT id FROM listings WHERE listing_name = "TEST"';
+    var insertPhoto = `INSERT INTO photos (photo_description, listing_id) VALUES ("TEST_PHOTO", (${subQuery}));`;
     var removeListing = 'DELETE FROM listings WHERE listing_name = "TEST";';
 
     db.connection.query(insertListing, () => {
-      db.connection.query(insertPhoto, () => {
-        db.fetchPhotos(101, (err, data) => {
-          if (err) {
-            throw err;
-          } else {
-            callback(data[0]);
-          }
-          db.connection.query(removePhoto, () => {
+      db.connection.query(subQuery + ';', (err, data) => {
+        var n = data[data.length - 1].id;
+        db.connection.query(insertPhoto, () => {
+          db.fetchPhotos(n, (err, data) => {
+            if (err) {
+              throw err;
+            } else {
+              callback(data[0]);
+            }
             db.connection.query(removeListing);
           });
         });

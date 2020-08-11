@@ -73,6 +73,7 @@ var seedDatabase = (n, callback = () => {}) => {
         if (err) {
           console.log(`Error seeding database: ${err}`);
         } else {
+          console.log('Database seeding complete!');
           callback();
         }
       });
@@ -80,7 +81,7 @@ var seedDatabase = (n, callback = () => {}) => {
   });
 };
 
-// seedDatabase(100);
+seedDatabase(100);
 
 module.exports = {
   seedDatabase
