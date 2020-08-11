@@ -83,3 +83,40 @@ export const ShowPhotosButton = styled.button`
   }
 `;
 
+// Carousel
+export const CarouselContainer = styled.div`
+display: grid;
+margin: 20px auto;
+grid-template: 5% 75% 20% / 10% 80% 10%;
+height: 95vh;
+width: 95vw;
+`;
+
+export const DisplayedImage = styled.img`
+  height: 100%;
+  width: 100%;
+  grid-area: 2 / 2 / span 1 / span 1;
+`;
+
+export const ArrowButton = styled.button`
+  background: rgba(230, 230, 230, 0);
+  border-radius: 50%;
+  border: 1px #bbb solid;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  grid-area: ${props => props.forward ? '2 / 3 / span 1 / span 1' : '2 / 1 / span 1 / span 1'};
+  justify-self: ${props => props.forward ? 'end' : 'start'};
+  align-self: center;
+  padding: 25px;
+  padding-right: 30px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 100;
+  color: #666;
+  line-height: 3px;
+  &:hover {
+    cursor: pointer;
+    background: rgba(230, 230, 230, 0.4);
+  }
+`;

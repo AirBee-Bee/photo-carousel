@@ -1,4 +1,5 @@
 import React from 'react';
+import { CarouselContainer, DisplayedImage, ArrowButton } from './Style.jsx';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -25,26 +26,25 @@ class Carousel extends React.Component {
     var index = this.state.currentPhoto - 1;
     var currentPhoto = photos[index];
     return (
-      <div id="carousel-container">
+      <div>
         <p>{index + 1} / {photos.length}</p>
         <br />
-        <div id="carousel">
-          <button
-            id="back-btn"
-            style={{ display: index === 0 ? "none" : "inline-block" }}
+        <CarouselContainer>
+          <ArrowButton
+            style={{ display: index === 0 ? 'none' : 'inline-block' }}
             onClick={this.handleBack.bind(this)}
-          >{'<'}</button>
-          <img
+          >{'<'}</ArrowButton>
+          <DisplayedImage
             className="current-photo"
             src={currentPhoto.photo_url}
             alt={currentPhoto.photo_url}
           />
-          <button
-            id="forward-btn"
-            style={{ display: index + 1 === photos.length ? "none" : "inline-block" }}
+          <ArrowButton
+            style={{ display: index + 1 === photos.length ? 'none' : 'inline-block' }}
             onClick={this.handleForward.bind(this)}
-          >{'>'}</button>
-        </div>
+            forward="true"
+          >{'>'}</ArrowButton>
+        </CarouselContainer>
       </div>
     );
   }
