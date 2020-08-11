@@ -77,7 +77,6 @@ export const ShowPhotosButton = styled.button`
   border-radius: 10px;
   z-index: 1;
   outline: none;
-  display: ${props => props.shouldHide ? 'none' : 'inline-block'};
   &:hover {
     cursor: pointer;
     filter: brightness(95%);

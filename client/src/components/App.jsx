@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import Carousel from './Carousel.jsx';
 import $ from 'jquery';
 import styled from 'styled-components';
-import { GlobalStyle, MainContainer, Image, ShowPhotosButton, ModalStyles } from './Style.jsx';
+import { GlobalStyle, MainContainer, Image, ShowPhotosButton } from './Style.jsx';
 import css from './style.css';
 
 
