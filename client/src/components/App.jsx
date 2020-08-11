@@ -4,6 +4,7 @@ import Carousel from './Carousel.jsx';
 import $ from 'jquery';
 import styled from 'styled-components';
 import { GlobalStyle, MainContainer, Image, ShowPhotosButton } from './Style.jsx';
+import css from './style.css';
 
 
 class App extends React.Component {
@@ -74,9 +75,11 @@ class App extends React.Component {
           ))}
           <ShowPhotosButton
             onClick={this.handleOpenModal.bind(this, 0)}
-            shouldHide={this.state.showModal}
           >Show all photos</ShowPhotosButton>
           <ReactModal
+            className={this.state.showModal ? css.ReactModal : css.ModalLeave}
+            overlayClassName={css.Overlay}
+            closeTimeoutMS={500}
             isOpen={this.state.showModal}
           >
             <button

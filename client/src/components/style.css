@@ -1,0 +1,71 @@
+/* Modal Styles and Transitions */
+
+@keyframes slideup {
+  from {
+    margin-top: 100%;
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 0%;
+    opacity: 1;
+  }
+}
+
+.ReactModal:focus {
+  outline:0;
+}
+
+.ReactModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  overflow: 'auto';
+  outline: 'none';
+  border: 'none';
+  z-index: 2;
+  animation-duration: 0.5s;
+  animation-name: slideup;
+  animation-timing-function: ease-out;
+}
+
+@keyframes slidedown {
+  from {
+    margin-top: 0%;
+    opacity: 1;
+  }
+
+  to {
+    margin-top: 100%;
+    opacity: 0;
+  }
+}
+
+.ModalLeave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  overflow: 'auto';
+  outline: 'none';
+  border: 'none';
+  z-index: 2;
+  animation-duration: 0.5s;
+  animation-name: slidedown;
+  animation-timing-function: ease-in;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  border: 'none';
+}
