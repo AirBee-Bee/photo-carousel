@@ -75,7 +75,7 @@ export const ShowPhotosButton = styled.button`
   right: 2%;
   padding: 8px 13px;
   border-radius: 10px;
-  z-index: 10;
+  z-index: 1;
   outline: none;
   display: ${props => props.shouldHide ? 'none' : 'inline-block'};
   &:hover {
@@ -84,15 +84,3 @@ export const ShowPhotosButton = styled.button`
   }
 `;
 
-export const ModalStyles = {
-  content: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: '#fff',
-    overflow: 'auto',
-    outline: 'none'
-  }
-};

@@ -10,6 +10,7 @@
   "scripts": {
     "seed-db": "node server/database/seed.js",
     "server-dev": "nodemon server/index.js",
+    "webpack-config": "webpack --config webpack.config.js",
     "build": "webpack -d --watch",
     "start": "open http://localhost:3000 && npm run build",
     "test": "jest --detectOpenHandles"
@@ -20,6 +21,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "body-parser": "^1.19.0",
+    "css-loader": "^4.2.1",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mysql": "^2.18.1",
@@ -27,9 +29,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",
+    "style-loader": "^1.2.1",
     "styled-components": "^5.1.1",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack": "^4.29.6"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
@@ -39,6 +41,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-standard": "^4.0.1",
-    "jest": "^26.2.2"
+    "jest": "^26.2.2",
+    "webpack-cli": "^3.3.12"
   }
 }

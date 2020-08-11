@@ -1,15 +1,61 @@
-.ReactModal__Overlay {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: all 500ms ease-in-out;
+@keyframes slideup {
+  from {
+    margin-top: 100%;
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 0%;
+    opacity: 1;
+  }
 }
 
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-  transform: translateX(0px);
+.ReactModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  overflow: 'auto';
+  outline: 'none';
+  border: none;
+  z-index: 2;
+  animation-duration: 0.5s;
+  animation-name: slideup;
 }
 
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-  transform: translateX(-100px);
+@keyframes slidedown {
+  from {
+    margin-top: 0%;
+    opacity: 1;
+  }
+
+  to {
+    margin-top: 100%;
+    opacity: 0;
+  }
+}
+
+.ModalLeave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  overflow: 'auto';
+  outline: 'none';
+  z-index: 2;
+  animation-duration: 0.5s;
+  animation-name: slidedown;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
 }
