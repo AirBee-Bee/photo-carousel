@@ -55,7 +55,7 @@
   outline: 'none';
   border: 'none';
   z-index: 2;
-  animation-duration: 0.5s;
+  animation-duration: 0.55s;
   animation-name: slidedown;
   animation-timing-function: ease-in;
 }
