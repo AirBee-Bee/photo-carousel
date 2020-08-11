@@ -1,5 +1,5 @@
 import React from 'react';
-import { CarouselContainer, DisplayedImage, ArrowButton } from './Style.jsx';
+import { CarouselContainer, DisplayedImage, ArrowButton, ImageIndex } from './Style.jsx';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class Carousel extends React.Component {
     var currentPhoto = photos[index];
     return (
       <div>
-        <p>{index + 1} / {photos.length}</p>
+        <ImageIndex>{index + 1} / {photos.length}</ImageIndex>
         <br />
         <CarouselContainer>
           <ArrowButton

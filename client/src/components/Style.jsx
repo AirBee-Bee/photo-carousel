@@ -120,3 +120,13 @@ export const ArrowButton = styled.button`
     background: rgba(230, 230, 230, 0.4);
   }
 `;
+
+export const ImageIndex = styled.p`
+  grid-area: 1 / 2 / span 1 / span 1;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: -40px;
+  font-size: 20px;
+  font-weight: 100;
+  color: #666;
+`;
