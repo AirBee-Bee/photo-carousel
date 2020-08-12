@@ -70,6 +70,7 @@
   border: 'none';
 }
 
+/* Heart Icon */
 .Heart {
   grid-area: 1 / 3 / span 1 / span 1;
   float: right;
@@ -88,4 +89,53 @@
   cursor: pointer;
   color: rgb(255, 51, 51);
   background-color: #eee;
+}
+
+/* Image Transitions */
+@keyframes initialAppear {
+  0%, 50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.InitialAppear {
+  animation-duration: 1s;
+  animation-name: initialAppear;
+  animation-timing-function: ease-in;
+}
+
+@keyframes toggleIn {
+  0% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.ToggleIn {
+  animation-duration: 0.25s;
+  animation-name: toggleIn;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes toggleOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.25;
+  }
+}
+
+.ToggleOut {
+  animation-duration: 0.25s;
+  animation-name: toggleOut;
+  animation-timing-function: ease-in-out;
 }

@@ -8,20 +8,28 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPhoto: this.props.currentPhoto
+      currentPhoto: this.props.currentPhoto,
+      animate: false,
+      initialRender: true
     };
   }
 
   handleBack() {
-    this.setState({
-      currentPhoto: this.state.currentPhoto - 1
-    });
+    this.setState({ animate: true, initialRender: false });
+    setTimeout(() => {
+      this.setState({
+        currentPhoto: this.state.currentPhoto - 1
+      });
+    }, 250);
   }
 
   handleForward() {
-    this.setState({
-      currentPhoto: this.state.currentPhoto + 1
-    });
+    this.setState({ animate: true, initialRender: false });
+    setTimeout(() => {
+      this.setState({
+        currentPhoto: this.state.currentPhoto + 1
+      });
+    }, 250);
   }
 
   render() {
@@ -48,7 +56,8 @@ class Carousel extends React.Component {
             onClick={this.handleBack.bind(this)}
           >{'<'}</ArrowButton>
           <DisplayedImage
-            className="current-photo"
+            className={this.state.initialRender ? css.InitialAppear : this.state.animate ? css.ToggleOut : css.ToggleIn}
+            onAnimationEnd={() => this.setState({ animate: false })}
             src={currentPhoto.photo_url}
             alt={currentPhoto.photo_url}
           />
