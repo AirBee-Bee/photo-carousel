@@ -82,10 +82,8 @@ class App extends React.Component {
             closeTimeoutMS={500}
             isOpen={this.state.showModal}
           >
-            <button
-              onClick={this.handleCloseModal.bind(this)}
-            >Close</button>
             <Carousel
+              closeModal={this.handleCloseModal.bind(this)}
               photos={this.state.photos}
               currentPhoto={this.state.currentPhoto}
             />
