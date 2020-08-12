@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var id = 2; // This will eventually need to point to the listing id in the URL
+    var id = 1; // This will eventually need to point to the listing id in the URL
     this.fetchPhotos(id);
     ReactModal.setAppElement('body');
   }
