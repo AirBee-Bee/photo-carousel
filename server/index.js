@@ -3,7 +3,7 @@ const app = express();
 const db = require('./database/index.js');
 const port = 3000;
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/../public/dist'));
 
 app.get('/listing/:listingId', (req, res) => {
   var listingId = req.params.listingId;
