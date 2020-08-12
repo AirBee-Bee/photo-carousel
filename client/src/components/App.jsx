@@ -58,7 +58,6 @@ class App extends React.Component {
     var images = this.state.photos.slice(0, 5);
     return (
       <div>
-        <h1>Display Active Users Account Details</h1>
         <GlobalStyle />
         <MainContainer
           count={images.length}
