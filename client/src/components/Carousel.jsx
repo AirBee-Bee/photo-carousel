@@ -1,7 +1,7 @@
 import React from 'react';
 import { CarouselContainer, DisplayedImage, ArrowButton, ImageIndex, CloseButton } from './Style.jsx';
 import css from './style.css';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Carousel extends React.Component {
@@ -40,12 +40,13 @@ class Carousel extends React.Component {
       <div>
         <ImageIndex>{index + 1} / {photos.length}</ImageIndex>
         <br />
-        <div
-          className={css.Heart}
-        >
-          <FontAwesomeIcon
-            icon={faHeart}
-          />
+        <div className={css.Icons}>
+          <span className={css.Share}>
+            <FontAwesomeIcon icon={faShare} />
+          </span>
+          <span className={css.Heart}>
+            <FontAwesomeIcon icon={faHeart} />
+          </span>
         </div>
         <CarouselContainer>
           <CloseButton
