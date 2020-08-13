@@ -1,6 +1,15 @@
 const mysql = require('mysql');
 const db = require('../server/database/index.js');
 
+beforeAll(done => {
+  done();
+});
+
+afterAll(done => {
+  db.connection.end();
+  done();
+});
+
 describe('Database seeding', () => {
 
   test('Database properly seeds', done => {
@@ -61,9 +70,10 @@ describe('Database querying', () => {
             if (err) {
               throw err;
             } else {
-              callback(data[0]);
+              db.connection.query(removeListing, () => {
+                callback(data[0]);
+              });
             }
-            db.connection.query(removeListing);
           });
         });
       });
