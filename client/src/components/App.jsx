@@ -2,6 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import Carousel from './Carousel.jsx';
 import MiniCarousel from './MiniCarousel.jsx';
+import PhotoGrid from './PhotoGrid.jsx';
 import $ from 'jquery';
 import styled from 'styled-components';
 import {
@@ -36,7 +37,10 @@ class App extends React.Component {
   resize() {
     var sizeCheck = (window.innerWidth <= 760);
     if (sizeCheck !== this.state.mobileView) {
-      this.setState({ mobileView: sizeCheck });
+      this.setState({
+        mobileView: sizeCheck,
+        showModal: false
+      });
     }
   }
 
@@ -114,9 +118,20 @@ class App extends React.Component {
         <div>
           <GlobalStyle />
           <SmallContainer>
+            <ReactModal
+              className={this.state.showModal ? css.ReactModal : css.ModalLeave}
+              overlayClassName={css.Overlay}
+              closeTimeoutMS={500}
+              isOpen={this.state.showModal}
+            >
+              <PhotoGrid
+                photos={this.state.photos}
+              />
+            </ReactModal>
             <MiniCarousel
               photos={this.state.photos}
               currentPhoto={this.state.currentPhoto}
+              openModal={this.handleOpenModal.bind(this)}
             />
           </SmallContainer>
         </div>

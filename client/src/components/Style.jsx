@@ -166,3 +166,18 @@ export const StyledSmallPhoto = styled.img`
   width: 100%;
   height: 100%;
 `;
+
+export const SmallPhotoGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-auto-rows: 60vw 35vw;
+  grid-gap: 10px;
+  grid-auto-flow: dense;
+  margin: 10px;
+`;
+
+export const SmallGridPhoto = styled.img`
+  height: 100%;
+  width: 100%;
+  grid-column-end: ${props => props.big ? 'span 2' : 'span 1'};
+`;
