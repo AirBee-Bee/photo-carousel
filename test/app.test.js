@@ -15,7 +15,7 @@ describe('App component renders properly', () => {
   test('state is correct when initially rendered', () => {
     wrapper = mount(<App />);
     expected = {
-      photos: [],
+      photos: [{ 'photo_url': '', 'photo_description': '' }],
       showModal: false,
       currentPhoto: 1
     };

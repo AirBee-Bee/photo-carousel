@@ -19,7 +19,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photos: [],
+      photos: [{ 'photo_url': '', 'photo_description': '' }],
       showModal: false,
       currentPhoto: 1,
       mobileView: false
@@ -56,7 +56,7 @@ class App extends React.Component {
         });
       },
       error: err => {
-        console.log(err);
+        throw err;
       }
     });
   }
