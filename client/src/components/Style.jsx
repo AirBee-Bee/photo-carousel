@@ -161,6 +161,9 @@ export const SmallPhotoDiv = styled.div`
   position: relative;
   width: 100vw;
   height: 60vw;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledSmallPhoto = styled.img`
