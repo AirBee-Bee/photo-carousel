@@ -13,7 +13,8 @@ class App extends React.Component {
     this.state = {
       photos: [],
       showModal: false,
-      currentPhoto: 1
+      currentPhoto: 1,
+      mobileView: false
     };
   }
 
@@ -21,6 +22,15 @@ class App extends React.Component {
     var url = window.location.pathname;
     this.fetchPhotos(url);
     ReactModal.setAppElement('body');
+    window.addEventListener('resize', this.resize.bind(this));
+    this.resize();
+  }
+
+  resize() {
+    var sizeCheck = (window.innerWidth <= 760);
+    if (sizeCheck !== this.state.mobileView) {
+      this.setState({ mobileView: sizeCheck });
+    }
   }
 
   fetchPhotos(url) {
