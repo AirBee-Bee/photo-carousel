@@ -18,15 +18,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var id = 1; // This will eventually need to point to the listing id in the URL
-    this.fetchPhotos(id);
+    var url = window.location.pathname;
+    this.fetchPhotos(url);
     ReactModal.setAppElement('body');
   }
 
-  fetchPhotos(listingId) {
+  fetchPhotos(url) {
     $.ajax({
       method: 'GET',
-      url: `/listing/${listingId}`,
+      url: `${url}/photos`,
       success: photos => {
         this.setState({
           photos,
