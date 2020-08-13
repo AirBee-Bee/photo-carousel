@@ -18,7 +18,11 @@ class MiniCarousel extends React.Component {
       <SnapList>
         {this.props.photos.map((photo, index) => (
           <SnapItem key={index} snapAlign="center">
-            <SmallPhoto openModal={this.props.openModal} photo={photo} />
+            <SmallPhoto
+              openModal={this.props.openModal}
+              photo={photo}
+              index={index + 1}
+              total={this.props.photos.length}/>
           </SnapItem>
         ))}
       </SnapList>

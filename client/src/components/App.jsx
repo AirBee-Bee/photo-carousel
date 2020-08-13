@@ -126,6 +126,7 @@ class App extends React.Component {
             >
               <PhotoGrid
                 photos={this.state.photos}
+                modalClose={this.handleCloseModal.bind(this)}
               />
             </ReactModal>
             <MiniCarousel

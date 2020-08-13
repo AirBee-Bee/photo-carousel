@@ -1,16 +1,20 @@
 import React from 'react';
 import {
   SmallPhotoDiv,
-  StyledSmallPhoto
+  StyledSmallPhoto,
+  SmallPhotoIndex
 } from './Style.jsx';
 
-const SmallPhoto = ({ photo, index, openModal }) => (
+const SmallPhoto = ({ photo, index, openModal, total }) => (
   <SmallPhotoDiv>
     <StyledSmallPhoto
       src={photo.photo_url}
       alt={photo.photo_description}
       onClick={() => openModal()}
     />
+    <SmallPhotoIndex
+      index={index}
+    >{index} / {total}</SmallPhotoIndex>
   </SmallPhotoDiv>
 );
 

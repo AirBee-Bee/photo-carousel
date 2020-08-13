@@ -158,6 +158,7 @@ export const SmallContainer = styled.div`
 `;
 
 export const SmallPhotoDiv = styled.div`
+  position: relative;
   width: 100vw;
   height: 60vw;
 `;
@@ -173,11 +174,52 @@ export const SmallPhotoGrid = styled.div`
   grid-auto-rows: 60vw 35vw;
   grid-gap: 10px;
   grid-auto-flow: dense;
-  margin: 10px;
+  margin: 50px 0;
 `;
 
 export const SmallGridPhoto = styled.img`
   height: 100%;
   width: 100%;
   grid-column-end: ${props => props.big ? 'span 2' : 'span 1'};
+`;
+
+export const SmallCloseButton = styled.button`
+border: none;
+background: rgba(230, 230, 230, 0);
+border-radius: 50%;
+width: 40px;
+height: 40px;
+outline: none;
+align-self: center;
+padding-top: 18px;
+padding-bottom: 20px;
+padding-right: 26px;
+padding-left: 12px;
+font-size: 24px;
+font-weight: 100;
+line-height: 3px;
+margin-top: 7px;
+margin-left: 10px;
+&:hover {
+  cursor: pointer;
+  background: rgba(230, 230, 230, 0.4);
+}
+`;
+
+export const SmallCloseDiv = styled.div`
+height: 50px;
+background-color: white;
+position: fixed;
+width: 100%;
+`;
+
+export const SmallPhotoIndex = styled.span`
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: rgba(30, 30, 30, 0.8);
+  color: white;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
 `;
