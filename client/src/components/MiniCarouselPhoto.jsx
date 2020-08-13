@@ -13,7 +13,6 @@ const SmallPhoto = ({ photo, index, openModal, total }) => (
       onClick={() => openModal()}
     />
     <SmallPhotoIndex
-      index={index}
     >{index} / {total}</SmallPhotoIndex>
   </SmallPhotoDiv>
 );
