@@ -44,7 +44,7 @@ class App extends React.Component {
     }
   }
 
-  fetchPhotos(url) {
+  fetchPhotos(url, cb = () => {}) {
     $.ajax({
       method: 'GET',
       url: `${url}/photos`,
@@ -57,6 +57,9 @@ class App extends React.Component {
       },
       error: err => {
         throw err;
+      },
+      complete: (data) => {
+        cb(data);
       }
     });
   }

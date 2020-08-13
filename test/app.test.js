@@ -25,12 +25,40 @@ describe('App component renders properly', () => {
 
   test('should contain an image', () => {
     wrapper = mount(<App />);
-    wrapper.setState({
+    expect(wrapper.children().exists('img')).toEqual(true);
+  });
+
+  test('should fetch photos', () => {
+    wrapper = mount(<App />);
+    expected = {
       photos: [{ 'photo_url': '', 'photo_description': '' }],
       showModal: false,
       currentPhoto: 1
+    };
+    var actualBefore = wrapper.state();
+    expect(actualBefore).toMatchObject(expected);
+    var instance = wrapper.instance();
+    instance.fetchPhotos('/listing/1/photos', (data) => {
+      expect(data).exists().toBeTruthy();
+      expect(data.length).toBeGreaterThan(4);
+      expect(data.length).toBeLessThan(11);
+      done();
     });
-    expect(wrapper.children().exists('img')).toEqual(true);
+  });
+
+  test('should open modal when prompted to', () => {
+    wrapper = mount(<App />);
+    expected = {
+      photos: [{ 'photo_url': '', 'photo_description': '' }],
+      showModal: false,
+      currentPhoto: 1
+    };
+    var actualBefore = wrapper.state();
+    expect(actualBefore).toMatchObject(expected);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('showModal')).toBe(true);
+    wrapper.find('#close-btn').at(0).simulate('click');
+    expect(wrapper.state('showModal')).toBe(false);
   });
 
 });

@@ -51,6 +51,7 @@ class Carousel extends React.Component {
         <CarouselContainer>
           <CloseButton
             onClick={() => this.props.closeModal()}
+            id="close-btn"
           >X Close</CloseButton>
           <ArrowButton
             style={{ display: index === 0 ? 'none' : 'inline-block' }}
