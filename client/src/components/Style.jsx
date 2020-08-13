@@ -150,3 +150,19 @@ export const CloseButton = styled.button`
   }
 `;
 
+/****** Style for smaller screens ******/
+
+export const SmallContainer = styled.div`
+  height: 60vw;
+  width: 100%;
+`;
+
+export const SmallPhotoDiv = styled.div`
+  width: 100vw;
+  height: 60vw;
+`;
+
+export const StyledSmallPhoto = styled.img`
+  width: 100%;
+  height: 100%;
+`;
