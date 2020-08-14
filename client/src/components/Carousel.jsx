@@ -1,5 +1,11 @@
 import React from 'react';
-import { CarouselContainer, DisplayedImage, ArrowButton, ImageIndex, CloseButton } from './Style.jsx';
+import {
+  CarouselContainer,
+  DisplayedImage,
+  ArrowButton,
+  ImageIndex,
+  CloseButton
+} from './Style.jsx';
 import css from './style.css';
 import { faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

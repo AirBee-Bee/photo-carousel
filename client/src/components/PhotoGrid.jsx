@@ -1,5 +1,10 @@
 import React from 'react';
-import { SmallPhotoGrid, SmallGridPhoto, SmallCloseButton, SmallCloseDiv } from './Style.jsx';
+import {
+  SmallPhotoGrid,
+  SmallGridPhoto,
+  SmallCloseButton,
+  SmallCloseDiv
+} from './Style.jsx';
 
 const PhotoGrid = ({ photos, modalClose }) => (
   <div style={{ 'overflow': 'scroll', 'height': '100%' }}>

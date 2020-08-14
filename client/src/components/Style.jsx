@@ -83,7 +83,8 @@ export const ShowPhotosButton = styled.button`
   }
 `;
 
-// Carousel
+/****** Carousel ******/
+
 export const CarouselContainer = styled.div`
 display: grid;
 margin: 20px auto;
