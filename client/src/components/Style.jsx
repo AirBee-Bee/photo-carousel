@@ -49,6 +49,8 @@ export const MainContainer = styled.div`
 
 // This is for the images that are rendered when the page loads
 export const Image = styled.img`
+  overflow: hidden;
+  object-fit: cover;
   height: 100%;
   width: 100%;
   ${props => props.primary && css`
