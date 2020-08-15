@@ -106,6 +106,7 @@ class App extends React.Component {
               overlayClassName={css.Overlay}
               closeTimeoutMS={500}
               isOpen={this.state.showModal}
+              onRequestClose={this.handleCloseModal.bind(this)}
             >
               <Carousel
                 closeModal={this.handleCloseModal.bind(this)}
@@ -126,6 +127,7 @@ class App extends React.Component {
               overlayClassName={css.Overlay}
               closeTimeoutMS={500}
               isOpen={this.state.showModal}
+              onRequestClose={this.handleCloseModal.bind(this)}
             >
               <PhotoGrid
                 photos={this.state.photos}
