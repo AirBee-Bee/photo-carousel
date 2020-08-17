@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const db = require('./database/index.js');
 const path = require('path');
+const cors = require('cors');
 const port = 3000;
 
-app.use(express.json());
+app.use(cors());
 
 app.get('/listing/:listingId', (req, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, '../public/dist') });

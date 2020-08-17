@@ -27,6 +27,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "babel-loader": "^8.0.5",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "css-loader": "^4.2.1",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
