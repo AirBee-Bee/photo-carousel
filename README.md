@@ -16,7 +16,12 @@
 
 ## Usage
 
-> Some usage instructions
+1. run "npm install" to install dependencies
+1. run "mysql -u root server/schema.sql" to create the database
+1. run "npm run seed-db" to seed the database
+1. run "npm run webpack-config" to build the bundle and configure webpack
+1. run "npm run server-start" to start the server on port 3000
+1. run "npm start" to open the app in your browser
 
 ## Requirements
 

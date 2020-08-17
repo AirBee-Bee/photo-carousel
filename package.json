@@ -9,7 +9,7 @@
   },
   "scripts": {
     "seed-db": "node server/database/seed.js",
-    "server-dev": "nodemon server/index.js",
+    "server-start": "nodemon server/index.js",
     "webpack-config": "webpack --config webpack.config.js",
     "build": "webpack -d --watch",
     "test": "jest --detectOpenHandles",
