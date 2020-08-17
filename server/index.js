@@ -4,13 +4,14 @@ const db = require('./database/index.js');
 const path = require('path');
 const port = 3000;
 
+app.use(express.json());
 
 app.get('/listing/:listingId', (req, res) => {
-  if (req.params.listingId === 'bundle.js') {
-    res.sendFile('bundle.js', { root: path.join(__dirname, '../public/dist') });
-  } else {
-    res.sendFile('index.html', { root: path.join(__dirname, '../public/dist') });
-  }
+  res.sendFile('index.html', { root: path.join(__dirname, '../public/dist') });
+});
+
+app.get('/public/dist/bundle.js', (req, res) => {
+  res.sendFile('bundle.js', { root: path.join(__dirname, '../public/dist') });
 });
 
 
