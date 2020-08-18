@@ -27,7 +27,6 @@ time, mark, audio, video {
 `;
 
 export const MainContainer = styled.div`
-  resize: both;
   position: relative;
   display: grid;
   width: 78vw;
