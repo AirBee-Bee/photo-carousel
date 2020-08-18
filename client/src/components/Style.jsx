@@ -30,7 +30,7 @@ export const MainContainer = styled.div`
   position: relative;
   display: grid;
   width: 78vw;
-  height: 55vh;
+  height: calc(78vw / 2.84);
   margin: 80px auto;
   grid-template: ${props => {
     if (props.count > 4) {
