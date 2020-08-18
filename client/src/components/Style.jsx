@@ -76,7 +76,6 @@ export const ShowPhotosButton = styled.button`
   right: 2%;
   padding: 8px 13px;
   border-radius: 10px;
-  z-index: 1;
   outline: none;
   &:hover {
     cursor: pointer;
