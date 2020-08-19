@@ -4,8 +4,8 @@ import ReactModal from 'react-modal';
 export const MainContainer = styled.div`
   position: relative;
   display: grid;
-  width: 78vw;
-  height: calc(78vw / 2.84);
+  width: 1120px;
+  height: 400px;
   margin: 80px auto;
   grid-template: ${props => {
     if (props.count > 4) {
