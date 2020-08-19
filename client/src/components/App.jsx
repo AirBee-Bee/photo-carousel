@@ -83,7 +83,6 @@ class App extends React.Component {
     if (!this.state.mobileView) {
       return (
         <div>
-          <GlobalStyle />
           <MainContainer
             count={images.length}
           >
@@ -120,7 +119,6 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <GlobalStyle />
           <SmallContainer>
             <ReactModal
               className={this.state.showModal ? css.ReactModal : css.ModalLeave}
