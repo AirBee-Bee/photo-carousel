@@ -1,6 +1,11 @@
 # Project Name
 
+> AirBee&Bee
+
+> This is a project that I worked on during my time at Hack Reactor.
 > This repository contains the component to be rendered to the AirBee&Bee page that will display photos for each listing, as well as an interactive carousel for toggling through those photos.
+> I hosted the images in S3, and the URL's which reference those images in a MySQL database.
+> The front end is served with an Node.js/Express server.
 
 ## Related Projects
 
@@ -17,7 +22,7 @@
 ## Usage
 
 1. run "npm install" to install dependencies
-1. run "mysql -u root server/schema.sql" to create the database
+1. run "mysql -u root < server/schema.sql" to create the database schema
 1. run "npm run seed-db" to seed the database
 1. run "npm run webpack-config" to build the bundle and configure webpack
 1. run "npm run server-start" to start the server on port 3000
